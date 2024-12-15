@@ -4,6 +4,41 @@ const { current = '' } = Astro.props;
 ---
 
 <style>
+
+/*
+  ========================================
+  Navigation Bar
+  ========================================
+  */
+  .navbar {
+    display: flex;
+    align-items: center;
+    margin-top: auto;
+    background-color: rgb(102, 153, 204);
+    height: 26px;
+  }
+  
+  .navbar ul {
+    display: flex;
+    margin: 0 auto;
+    padding: 0;
+  }
+  
+  .navbar li::after {
+    content: '|';
+    margin: .33rem;
+    color: black;
+  }
+  
+  .navbar li:last-child::after {
+    content: '';
+  }
+  
+  .navbar a:hover {
+    color: #003399;
+  }
+  
+
   nav {
     align-items: center;
     display: flex;
@@ -62,11 +97,12 @@ const { current = '' } = Astro.props;
 
 </style>
 
-<nav>
+<nav class="navbar">
+    
+
+  
   <a class={current === "" ? "selected" : ""} href='/'>home</a>
   <a class={current === "about" ? "selected" : ""} href='/about'>about</a>
   <a class={current === "blog" ? "selected" : ""} href='/blog'>blog</a>
-  <div class="theme-toggle-container">
-    <ThemeToggleButton client:load />
-  </div>
+ 
 </nav>
